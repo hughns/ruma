@@ -761,6 +761,15 @@ pub enum FeatureFlag {
     #[ruma_enum(rename = "org.matrix.simplified_msc3575")]
     Msc4186,
 
+    /// `io.element.msc4388` ([MSC])
+    ///
+    /// Secure out-of-band channel for sign in with QR.
+    ///
+    /// [MSC]: https://github.com/matrix-org/matrix-spec-proposals/pull/4388
+    #[cfg(feature = "unstable-msc4388")]
+    #[ruma_enum(rename = "io.element.msc4388")]
+    Msc4388,
+
     #[doc(hidden)]
     _Custom(PrivOwnedStr),
 }

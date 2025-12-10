@@ -3,9 +3,9 @@
 //! Delete/close a rendezvous session.
 
 pub mod unstable {
-    //! `msc4108` ([MSC])
+    //! `msc4388` ([MSC])
     //!
-    //! [MSC]: https://github.com/matrix-org/matrix-spec-proposals/pull/4108
+    //! [MSC]: https://github.com/matrix-org/matrix-spec-proposals/pull/4388
 
     use ruma_common::{
         api::{auth_scheme::NoAuthentication, request, response},
@@ -17,7 +17,7 @@ pub mod unstable {
         rate_limited: true,
         authentication: NoAuthentication,
         history: {
-            unstable("io.element.msc4108") => "/_matrix/client/unstable/io.element.msc4108/rendezvous/{id}",
+            unstable("io.element.msc4388") => "/_matrix/client/unstable/io.element.msc4388/rendezvous/{id}",
         }
     }
 
