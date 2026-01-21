@@ -2,10 +2,10 @@
 
 pub mod create_rendezvous_session;
 #[cfg(feature = "unstable-msc4388")]
-pub mod unstable_create_rendezvous_session;
+pub mod delete_rendezvous_session;
 #[cfg(feature = "unstable-msc4388")]
 pub mod get_rendezvous_session;
 #[cfg(feature = "unstable-msc4388")]
-pub mod update_rendezvous_session;
+pub mod unstable_create_rendezvous_session;
 #[cfg(feature = "unstable-msc4388")]
-pub mod delete_rendezvous_session;
+pub mod update_rendezvous_session;
