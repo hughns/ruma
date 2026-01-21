@@ -6,6 +6,8 @@ pub mod unstable {
     //! `msc4388` ([MSC])
     //!
     //! [MSC]: https://github.com/matrix-org/matrix-spec-proposals/pull/4388
+    use std::time::Duration;
+
     use ruma_common::{
         api::{auth_scheme::AccessTokenOptional, request, response},
         metadata,
@@ -39,14 +41,19 @@ pub mod unstable {
     pub struct Response {
         /// The ID of the created rendezvous session.
         pub id: String,
+
         /// The initial sequence token for the session.
         pub sequence_token: String,
+
+        /// The time remaining in milliseconds until the session expires.
+        #[serde(with = "ruma_common::serde::duration::ms", rename = "expires_in_ms")]
+        pub expires_in: Duration,
     }
 
     impl Response {
         /// Creates a new `Response` with the given content.
-        pub fn new(id: String, sequence_token: String) -> Self {
-            Self { id, sequence_token }
+        pub fn new(id: String, sequence_token: String, expires_in: Duration) -> Self {
+            Self { id, sequence_token, expires_in }
         }
     }
 }

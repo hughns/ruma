@@ -7,6 +7,8 @@ pub mod unstable {
     //!
     //! [MSC]: https://github.com/matrix-org/matrix-spec-proposals/pull/4388
 
+    use std::time::Duration;
+
     use ruma_common::{
         api::{auth_scheme::NoAuthentication, request, response},
         metadata,
@@ -44,12 +46,16 @@ pub mod unstable {
 
         /// The current data for the session.
         pub data: String,
+
+        /// The time remaining in milliseconds until the session expires.
+        #[serde(with = "ruma_common::serde::duration::ms", rename = "expires_in_ms")]
+        pub expires_in: Duration,
     }
 
     impl Response {
         /// Creates a new `Response` with the given sequence token and data.
-        pub fn new(sequence_token: String, data: String) -> Self {
-            Self { sequence_token, data }
+        pub fn new(sequence_token: String, data: String, expires_in: Duration) -> Self {
+            Self { sequence_token, data, expires_in }
         }
     }
 }
