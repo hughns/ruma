@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+Improvements:
+
+- Updated support for unstable MSC4388 with new `txn_id` field on update requests.
+
 ## 0.25.0
 
 Breaking changes:
